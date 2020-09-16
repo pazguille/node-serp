@@ -1,70 +1,21 @@
-const puppeteer = require('puppeteer');
+const browser = require('browser.js');
+const parsePage = require('parsePage.js');
+const getLocation = require('getLocation.js');
 
-class SerpParser {
+const baseUrl = 'https://www.google.com/search';
 
-	constructor() {
-		this.browser = null;
+module.exports = async (query, location = false, pages = 1, mobile = false) => {
+	let options = {};
+	options.q = query;
+
+	if (location && getLocation(location)) {
+		options.uule = getLocation(location);
 	}
 
-	async getBrowser() {
-		if (!this.browser) {
-			this.browser = await puppeteer.launch();
-		}
-		return this.browser;
-	}
+	const searchParams = new URLSearchParams(options);
+	const page = browser(baseUrl+searchParams.toString());
+	const result = await page.evaluate(parsePage);
+	page.close();
 
-	async getResultPages($query, $pages = 1) {
-
-	}
-
-	async getResultPage(url) {
-		const browser = await this.getBrowser()
-		const page = await browser.newPage()
-		await page.goto(url);
-		const results = await page.evaluate(this.parsePage);
-		page.close();
-		return results;
-	}
-
-	parsePage() {
-		const rules = {
-			'paid': {
-				'item': '.ads-fr',
-				'heading': 'div[role=heading] span',
-				'snippet': '.MUxGbd:not([role=heading]) span',
-				'link': '.Krnil'
-			},
-			'organic': {
-				'item': '.g',
-				'heading': '.r h3',
-				'snippet': '.st',
-				'link': '.r a'
-			}
-		};
-		let allResults = {};
-
-		for(let [name, rule] in rules) {
-			let elements = [...document.querySelectorAll(rule.item)];
-
-			allResults[name] = elements.reduce((parsed, result) => {
-				parsed.push({
-					p: i+1,
-					h: result.querySelector(rule.heading).textContent,
-					d: result.querySelector(rule.snippet).textContent,
-					a: result.querySelector(rule.link).href
-				})
-				return parsed;
-			}, []);
-		}
-		return allResults;
-	}
-
-	parseResult
+	return results;
 }
-
-
-const run = async () => {
-	parser = new SerpParser();
-	console.log(await parser.getResultPage('https://www.google.com/search?q=escape+room+budapest'))
-}
-run()
