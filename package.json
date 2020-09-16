@@ -1,0 +1,31 @@
+{
+  "name": "node-serp",
+  "version": "1.0.0",
+  "description": "Get Google search results using Puppeteer \u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C de\u001b[2~sktop and mobile search results using Puppeteer ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ppajer/node-serp.git"
+  },
+  "keywords": [
+    "google",
+    "serp",
+    "puppeteer",
+    "search",
+    "result"
+  ],
+  "author": "ppajer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ppajer/node-serp/issues"
+  },
+  "homepage": "https://github.com/ppajer/node-serp#readme",
+  "dependencies": {
+    "puppeteer": "^5.2.1",
+    "puppeteer-extra": "^3.1.15",
+    "puppeteer-extra-plugin-stealth": "^2.6.1"
+  }
+}
