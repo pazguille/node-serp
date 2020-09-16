@@ -5,7 +5,7 @@ const keys = require('./json/uule.keys.json');
 const { Base64 } = require('js-base64');
 
 module.exports = (location) => {
-	if (keys.indexOf(location.length) === -1) {
+	if (keys.hasOwnProperty(location.length) === -1) {
 		return false;
 	}
 
