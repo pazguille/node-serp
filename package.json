@@ -1,7 +1,7 @@
 {
   "name": "node-serp",
   "version": "1.0.0",
-  "description": "Get Google search results using Puppeteer \u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[C de\u001b[2~sktop and mobile search results using Puppeteer ",
+  "description": "Get Google desktop and mobile search results using Puppeteer ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
